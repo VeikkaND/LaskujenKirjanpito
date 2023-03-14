@@ -24,6 +24,7 @@ public class Lasku implements Serializable {
      */
     private double maara;
 
+
     /**
      * Konstruktori Lasku -luokalle
      * @param tunnus String laskun tunnus
@@ -71,4 +72,5 @@ public class Lasku implements Serializable {
      * @param maara double määrä
      */
     public void setMaara(double maara) {this.maara = maara;}
+
 }
