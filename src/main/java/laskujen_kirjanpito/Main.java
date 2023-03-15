@@ -1,12 +1,17 @@
 package laskujen_kirjanpito;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
+import laskujen_kirjanpito.valikot.LisaaValikko;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,6 +43,10 @@ public class Main extends Application {
         BorderPane root = new BorderPane();
         GridPane laskutPaneeli = new GridPane();
         HBox valintaPaneeli = new HBox();
+
+        Popup popup = new Popup();
+        popup.setWidth(350);
+        popup.setHeight(350);
         /*
         laskut.add(lasku1);
         laskut.add(lasku2);
@@ -64,25 +73,15 @@ public class Main extends Application {
         }
 
         // luodaan kuvakkeet kaikille laskuille
-        if(laskut.size() > 0) {
-            int sarake = 0;
-            int rivi = 0;
-            for(int i = 0; i < laskut.size(); i++) {
-                Lasku lasku = laskut.get(i);
-                laskutPaneeli.add(LaskuVisualisointi.luoPaneeli(lasku.getTunnus(), lasku.getTiedot(), lasku.getMaara()),sarake, rivi);
-                if(sarake >= (ruudukkoLeveys-1)) { // -> vaihdetaan riviä
-                    rivi++;
-                    sarake = 0;
-                }
-                else {
-                    sarake++;
-                }
-            }
-        }
+        LaskuVisualisointi.luoKuvakkeet(laskut, laskutPaneeli, ruudukkoLeveys);
 
         // valintaPaneelin näppäimet
         Button lisaaButton = new Button("Lisää");
         Button tallennaButton = new Button("Tallenna");
+        // toiminnallisuus uuden laskun luonnille
+        lisaaButton.setOnAction(e -> {
+            LisaaValikko.naytaLisaaValikko(popup, laskut, laskutPaneeli, ruudukkoLeveys, stage);
+        });
         tallennaButton.setOnAction(e -> {
             // tallennetaan laskut tiedostoon
             try {
@@ -112,4 +111,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
+
 }

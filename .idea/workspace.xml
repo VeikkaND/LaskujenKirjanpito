@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a0db75c-2e96-4a2e-856c-44e5938abc13" name="Changes" comment="Lasku -luokka">
-      <change afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/LaskuVisualisointi.java" afterDir="false" />
+    <list default="true" id="8a0db75c-2e96-4a2e-856c-44e5938abc13" name="Changes" comment="Tiedostoon tallentaminen, perusulkoasu">
+      <change afterPath="$PROJECT_DIR$/laskut.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/valikot/LisaaValikko.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Lasku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Lasku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/LaskuVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/LaskuVisualisointi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -81,7 +83,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1678527584466</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Tiedostoon tallentaminen, perusulkoasu">
+      <created>1678793845231</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1678793845231</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,7 +104,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Lasku -luokka" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lasku -luokka" />
+    <MESSAGE value="Tiedostoon tallentaminen, perusulkoasu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tiedostoon tallentaminen, perusulkoasu" />
   </component>
 </project>
