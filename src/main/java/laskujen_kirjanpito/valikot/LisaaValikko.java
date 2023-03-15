@@ -29,6 +29,7 @@ public class LisaaValikko {
     public static void naytaLisaaValikko(Popup popup, ArrayList<Lasku> laskut, GridPane laskutPaneeli, int ruudukkoLeveys, Stage stage) {
         if(!popup.isShowing()) {
             // TODO lisää valikkoon kunnon sulkemisnappi
+            // TODO värin vaihto
             // TODO tarkasta syötteet
             StackPane taustaPaneeli = new StackPane();
             BorderPane lisaaPaneeli = new BorderPane();

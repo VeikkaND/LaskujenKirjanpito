@@ -1,14 +1,9 @@
 package laskujen_kirjanpito;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import laskujen_kirjanpito.valikot.LisaaValikko;
@@ -104,6 +99,7 @@ public class Main extends Application {
         root.setTop(valintaPaneeli);
         Scene scene = new Scene(root, 1000,800);
         stage.setTitle("Laskujen kirjanpito");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
