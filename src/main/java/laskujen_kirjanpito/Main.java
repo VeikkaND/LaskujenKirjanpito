@@ -1,8 +1,11 @@
 package laskujen_kirjanpito;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -13,25 +16,23 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    Lasku lasku1 = new Lasku("Lasku", "Tämä on jokin lasku", 50);
-    Lasku lasku2 = new Lasku("Lasku2", "Tämäkin on lasku", 40);
-    Lasku lasku3 = new Lasku("Lasku3", "Tämäkin on lasku ehkä", 30);
-    Lasku lasku4 = new Lasku("Lasku4", "Tämäkin on kai lasku", 44);
-
     /**
      * Lista kaikista tämänhetkisistä laskuista
      */
-    private ArrayList<Lasku> laskut = new ArrayList<Lasku>();
+    private static ArrayList<Lasku> laskut = new ArrayList<Lasku>();
 
     /**
      * lasku -ruudukon leveys
      */
-    private int ruudukkoLeveys = 3;
+    private static int ruudukkoLeveys = 3;
 
     /**
      * tiedostopolku tallennettaville laskuille
      */
     private String polku = "laskut.dat";
+
+    private static String laskujenSumma;
+    private static Label summa = new Label();
     private ObjectInputStream luettavaTiedosto = null;
     @Override
     public void start(Stage stage) throws Exception {
@@ -42,13 +43,6 @@ public class Main extends Application {
         Popup popup = new Popup();
         popup.setWidth(350);
         popup.setHeight(350);
-        /*
-        laskut.add(lasku1);
-        laskut.add(lasku2);
-        laskut.add(lasku3);
-        laskut.add(lasku4);
-
-         */
 
         // luetaan laskut tiedostosta
         try {
@@ -95,8 +89,17 @@ public class Main extends Application {
         });
         valintaPaneeli.getChildren().addAll(lisaaButton, tallennaButton);
 
+        // Summapaneeli
+        VBox summaPaneeli = new VBox(30);
+        Label summaTeksti = new Label("Summa:");
+        summaPaneeli.getChildren().addAll(summaTeksti, summa);
+        summaPaneeli.setAlignment(Pos.CENTER);
+        summaPaneeli.setPadding(new Insets(10,10,10,10));
+
         root.setCenter(laskutPaneeli);
         root.setTop(valintaPaneeli);
+        root.setLeft(summaPaneeli);
+
         Scene scene = new Scene(root, 1000,800);
         stage.setTitle("Laskujen kirjanpito");
         stage.setResizable(false);
@@ -108,4 +111,37 @@ public class Main extends Application {
         launch();
     }
 
+    /**
+     * Poistaa halutun Laskun laskut -listasta
+     * @param lasku Lasku poistettava lasku
+     */
+    public static void poistaLasku(Lasku lasku) {
+        laskut.remove(lasku);
+    }
+
+    /**
+     * Palauttaa listan laskuista
+     * @return Arraylist<Lasku> laskut
+     */
+    public static ArrayList<Lasku> getLaskut() {
+        return laskut;
+    }
+
+    /**
+     * Palauttaa ruudukon leveyden
+     * @return int ruudukon leveys
+     */
+    public static int getRuudukkoLeveys() {
+        return ruudukkoLeveys;
+    }
+
+    public static void paivitaSumma() {
+        System.out.println("päivitetään summaa");
+        double uusiSumma = 0;
+        for(Lasku lasku : laskut) {
+            uusiSumma += lasku.getMaara();
+        }
+        laskujenSumma = Double.toString(uusiSumma) + "€";
+        summa.setText(laskujenSumma);
+    }
 }
