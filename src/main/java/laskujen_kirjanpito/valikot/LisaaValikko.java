@@ -1,13 +1,8 @@
 package laskujen_kirjanpito.valikot;
 
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
@@ -28,13 +23,12 @@ public class LisaaValikko {
      */
     public static void naytaLisaaValikko(Popup popup, ArrayList<Lasku> laskut, GridPane laskutPaneeli, int ruudukkoLeveys, Stage stage) {
         if(!popup.isShowing()) {
-            // TODO lisää valikkoon kunnon sulkemisnappi
-            // TODO värin vaihto
             // TODO tarkasta syötteet
             StackPane taustaPaneeli = new StackPane();
             BorderPane lisaaPaneeli = new BorderPane();
             Rectangle tausta = new Rectangle(popup.getWidth(), popup.getHeight(), Color.LIGHTBLUE);
             tausta.setStroke(Color.BLACK);
+
             VBox laatikkoVBox = new VBox(10);
             TextField tunnusLaatikko = new TextField("Nimi");
             tunnusLaatikko.setMaxWidth(popup.getWidth()-50);
@@ -42,19 +36,30 @@ public class LisaaValikko {
             tiedotLaatikko.setMaxWidth(popup.getWidth()-50);
             TextField maaraLaatikko = new TextField("Määrä (€)");
             maaraLaatikko.setMaxWidth(popup.getWidth()-50);
+
+            HBox lisaaRivi = new HBox(30);
             Button lisaaLaskuButton = new Button("LISÄÄ");
-            lisaaLaskuButton.setAlignment(Pos.CENTER);
             lisaaLaskuButton.setOnAction(lisaa -> {
-                System.out.println("Lisätään uusi lasku");
-                Lasku uusiLasku = new Lasku(tunnusLaatikko.getText(), tiedotLaatikko.getText(), Double.parseDouble(maaraLaatikko.getText()));
-                laskut.add(uusiLasku);
-                LaskuVisualisointi.luoKuvakkeet(laskut, laskutPaneeli, ruudukkoLeveys);
-                popup.hide();
+                try {
+                    // uuden laskun lisääminen
+                    Lasku uusiLasku = new Lasku(tunnusLaatikko.getText(), tiedotLaatikko.getText(), Double.parseDouble(maaraLaatikko.getText()));
+                    laskut.add(uusiLasku);
+                    LaskuVisualisointi.luoKuvakkeet(laskut, laskutPaneeli, ruudukkoLeveys);
+                    popup.hide();
+                } catch (NumberFormatException NumEX) {
+                    System.out.println("Vääränlainen syöte");
+                }
             });
-            laatikkoVBox.getChildren().addAll(tunnusLaatikko, tiedotLaatikko, maaraLaatikko, lisaaLaskuButton);
+            Button peruuta = new Button("Peruuta");
+            peruuta.setOnAction(e -> popup.hide());
+            lisaaRivi.getChildren().addAll(lisaaLaskuButton, peruuta);
+            lisaaRivi.setAlignment(Pos.CENTER);
+
+            laatikkoVBox.getChildren().addAll(tunnusLaatikko, tiedotLaatikko, maaraLaatikko, lisaaRivi);
             laatikkoVBox.setAlignment(Pos.CENTER);
             lisaaPaneeli.setCenter(laatikkoVBox);
             taustaPaneeli.getChildren().addAll(tausta, lisaaPaneeli);
+
             popup.getContent().add(taustaPaneeli);
             popup.show(stage);
         }

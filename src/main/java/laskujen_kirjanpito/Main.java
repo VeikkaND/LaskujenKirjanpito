@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -31,12 +32,20 @@ public class Main extends Application {
      */
     private String polku = "laskut.dat";
 
+    /**
+     * merkkijono, joka näytetään laskujen summana
+     */
     private static String laskujenSumma;
+
+    /**
+     * tekstilaatikko näytettävälle summalle
+     */
     private static Label summa = new Label();
     private ObjectInputStream luettavaTiedosto = null;
     @Override
     public void start(Stage stage) throws Exception {
         BorderPane root = new BorderPane();
+        ScrollPane paaPaneeli = new ScrollPane(root);
         GridPane laskutPaneeli = new GridPane();
         HBox valintaPaneeli = new HBox();
 
@@ -81,7 +90,7 @@ public class Main extends Application {
 
                 tallennettavaTiedosto.close();
             } catch (FileNotFoundException fileNotFound) {
-                System.out.println("Tiedostoa ei löytynyt");
+                System.out.println("Tiedostoa ei löytynyt, luodaan uusi tiedosto");
             } catch (IOException ioex) {
                 System.out.println(ioex);
             }
@@ -100,9 +109,9 @@ public class Main extends Application {
         root.setTop(valintaPaneeli);
         root.setLeft(summaPaneeli);
 
-        Scene scene = new Scene(root, 1000,800);
+        Scene scene = new Scene(paaPaneeli, 1000,800);
         stage.setTitle("Laskujen kirjanpito");
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -135,8 +144,10 @@ public class Main extends Application {
         return ruudukkoLeveys;
     }
 
+    /**
+     * Laskujen summan päivittäminen vastaamaan nykyisten laskujen summaa
+     */
     public static void paivitaSumma() {
-        System.out.println("päivitetään summaa");
         double uusiSumma = 0;
         for(Lasku lasku : laskut) {
             uusiSumma += lasku.getMaara();

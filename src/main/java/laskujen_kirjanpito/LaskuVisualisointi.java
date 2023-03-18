@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class LaskuVisualisointi {
     /**
-     * Metodi, jolla voidaan visualisoida lasku luodun paneelin avulla
+     * Metodi, jolla luodaan laskut näkyville näytölle
      * @param tunnus String laskun tunnus
      * @param tiedot String laskun tiedot
      * @param maara double laskun määrä
@@ -23,11 +23,13 @@ public class LaskuVisualisointi {
     public static StackPane luoPaneeli(String tunnus, String tiedot, double maara, GridPane laskutPaneeli, Lasku lasku) {
         int leveys = 300;
         int korkeus = 250;
+
         // luodaan tarvittavat komponentit
         StackPane paneeli = new StackPane();
         Rectangle tausta = new Rectangle(leveys, korkeus, Color.LIGHTSKYBLUE);
         tausta.setStroke(Color.BLACK);
-        VBox tiedotVBox = new VBox(10);
+
+        VBox tiedotVBox = new VBox(5);
         HBox tunnusRivi = new HBox(50);
         Label tunnusTeksti = new Label(tunnus);
         tunnusTeksti.setFont(Font.font(25));
@@ -39,15 +41,18 @@ public class LaskuVisualisointi {
         });
         tunnusRivi.getChildren().addAll(tunnusTeksti, poista);
         tunnusRivi.setAlignment(Pos.CENTER);
+
         TextArea tiedotTeksti = new TextArea(tiedot);
         tiedotTeksti.setEditable(false);
         tiedotTeksti.setMaxWidth(leveys-40);
+        tiedotTeksti.setMaxHeight(korkeus-100);
+
         Label maaraTeksti = new Label(Double.toString(maara) + " €");
         maaraTeksti.setFont(Font.font(20));
+
         tiedotVBox.getChildren().addAll(tunnusRivi, tiedotTeksti, maaraTeksti);
         tiedotVBox.setAlignment(Pos.CENTER);
         paneeli.getChildren().addAll(tausta, tiedotVBox);
-
         return paneeli;
     }
 
