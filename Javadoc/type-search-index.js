@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"laskujen_kirjanpito","l":"Lasku"},{"p":"laskujen_kirjanpito","l":"LaskuVisualisointi"},{"p":"laskujen_kirjanpito.valikot","l":"LisaaValikko"},{"p":"laskujen_kirjanpito","l":"Main"}];updateSearchResults();

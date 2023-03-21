@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"com.example.laskujen_kirjanpito"}];updateSearchResults();

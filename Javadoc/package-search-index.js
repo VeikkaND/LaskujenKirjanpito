@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.example.laskujen_kirjanpito","l":"laskujen_kirjanpito"},{"m":"com.example.laskujen_kirjanpito","l":"laskujen_kirjanpito.valikot"}];updateSearchResults();
