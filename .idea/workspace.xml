@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a0db75c-2e96-4a2e-856c-44e5938abc13" name="Changes" comment="Laskujen poistaminen">
+    <list default="true" id="8a0db75c-2e96-4a2e-856c-44e5938abc13" name="Changes" comment="Visuaalisia parannuksia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laskut.dat" beforeDir="false" afterPath="$PROJECT_DIR$/laskut.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/LaskuVisualisointi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/LaskuVisualisointi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/valikot/LisaaValikko.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/laskujen_kirjanpito/valikot/LisaaValikko.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1679130482136</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Visuaalisia parannuksia">
+      <created>1679133127204</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1679133127204</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +149,7 @@
     <MESSAGE value="Uusien laskujen lisääminen" />
     <MESSAGE value="visuaalisia muutoksia laskuihin" />
     <MESSAGE value="Laskujen poistaminen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laskujen poistaminen" />
+    <MESSAGE value="Visuaalisia parannuksia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Visuaalisia parannuksia" />
   </component>
 </project>
